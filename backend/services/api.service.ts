@@ -1,6 +1,7 @@
 import type { Context, ServiceSchema } from "moleculer";
 import type { ApiSettingsSchema, GatewayResponse, IncomingRequest, Route } from "moleculer-web";
 import ApiGateway from "moleculer-web";
+import cors from "cors";
 
 interface Meta {
 	userAgent?: string | null | undefined;
@@ -29,7 +30,9 @@ const ApiService: ServiceSchema<ApiSettingsSchema> = {
 				whitelist: ["**"],
 
 				// Route-level Express middlewares. More info: https://moleculer.services/docs/0.14/moleculer-web.html#Middlewares
-				use: [],
+				use: [
+					cors(),
+				],
 
 				// Enable/disable parameter merging method. More info: https://moleculer.services/docs/0.14/moleculer-web.html#Disable-merging
 				mergeParams: false,
