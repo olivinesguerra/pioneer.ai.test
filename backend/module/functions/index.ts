@@ -1,0 +1,1 @@
+export * as LocationFunctions from "./location_function";
