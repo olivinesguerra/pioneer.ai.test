@@ -7,6 +7,6 @@ import {
 
 export const queryLocation = async (query: string) => {
     const { params } = await SonnetRepository.formParameters(query);
-    const res = await FoursquareRepository.searchPlaces(params);
-    return res?.data;
+    const res = await FoursquareRepository.searchPlaces(params, 0);
+    return res;
 };
